@@ -105,7 +105,7 @@
     .totals{background:var(--soft);padding:14px;border-radius:14px;margin:12px 0 20px}
     .total-line{display:flex;justify-content:space-between;gap:12px;padding:3px 0}
     .total-line.final{border-top:1px solid #ddd;margin-top:7px;padding-top:10px;font-size:1.15rem;font-weight:900}
-    .delivery-disclaimer{color:#6a4b00;background:#fff4c5;border:1px solid #ffe28a;border-radius:12px;padding:11px 12px;font-size:.82rem;margin:12px 0 19px}
+    .free-delivery{color:#167d45;font-weight:800}.delivery-disclaimer{color:#6a4b00;background:#fff4c5;border:1px solid #ffe28a;border-radius:12px;padding:11px 12px;font-size:.82rem;margin:12px 0 19px}
     .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
     .field{display:flex;flex-direction:column;gap:5px}
     .field.full{grid-column:1/-1}
@@ -215,7 +215,7 @@
         <div class="order-intro">
           <div class="section-kicker">الخطوة الأخيرة</div>
           <h2>جهّز طلبك</h2>
-          <p>راجع الأصناف والكميات، ثم أدخل معلومات التواصل والتوصيل. سيفتح واتساب برسالة جاهزة لتراجعها بنفسك.</p>
+          <p>راجع وجباتك وكمياتها، ثم أدخل بياناتك وعنوانك. التوصيل مجاني، وستُفتح رسالة طلبك في واتساب لمراجعتها قبل الإرسال.</p>
           <div class="order-hint">🔒 لن تُرسل الرسالة تلقائياً. ستنتقل إلى واتساب، ويمكنك مراجعة النص وتعديله قبل الضغط على إرسال.</div>
         </div>
         <div class="order-panel">
@@ -223,10 +223,10 @@
           <div id="cartContents"></div>
           <div class="totals" aria-live="polite">
             <div class="total-line"><span>المجموع الفرعي</span><strong id="subtotal">$0.00</strong></div>
-            <div class="total-line"><span>رسوم التوصيل</span><strong>تُحدّد لاحقاً</strong></div>
-            <div class="total-line final"><span>إجمالي الطعام</span><strong id="grandTotal">$0.00</strong></div>
+            <div class="total-line"><span>رسوم التوصيل</span><strong class="free-delivery">مجاناً</strong></div>
+            <div class="total-line final"><span>الإجمالي النهائي</span><strong id="grandTotal">$0.00</strong></div>
           </div>
-          <div class="delivery-disclaimer">مهم: إجمالي الطلب لا يشمل رسوم التوصيل. سيؤكد المطعم رسوم التوصيل معك قبل اعتماد الطلب.</div>
+          <div class="delivery-disclaimer">التوصيل مجاني — المبلغ الظاهر هو إجمالي طلبك دون رسوم إضافية للتوصيل.</div>
 
           <form id="orderForm" novalidate>
             <div class="form-grid">
@@ -284,8 +284,8 @@
     // أسعار تجريبية بالدولار الأمريكي. عدّلها إلى الأسعار الحقيقية قبل نشر الموقع.
     const PRODUCTS = [
       {id:"classic-burger",name:"كلاسيك برجر",category:"burger",price:5.00,tag:"الأكثر طلباً",description:"برجر كلاسيكي مع الخس والطماطم والصوص.",image:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=82",alt:"برجر كلاسيكي"},
-      {id:"cheese-burger",name:"تشيز برجر",category:"burger",price:6.00,tag:"جبنة لذيذة",description:"برجر مع الجبنة الذائبة وخبز طري.",image:"https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=82",alt:"تشيز برجر"},
-      {id:"double-burger",name:"دبل برجر",category:"burger",price:8.00,tag:"وجبة دسمة",description:"طبقتان من البرجر مع إضافات شهية.",image:"https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=82",alt:"دبل برجر"},
+      {id:"cheese-burger",name:"تشيز برجر",category:"burger",price:6.00,tag:"جبنة لذيذة",description:"برجر مع الجبنة الذائبة وخبز طري.",image:"https://images.unsplash.com/photo-1553979459-d2229ba7433a?auto=format&fit=crop&w=800&q=82",alt:"تشيز برجر"},
+      {id:"double-burger",name:"دبل برجر",category:"burger",price:8.00,tag:"وجبة دسمة",description:"طبقتان من البرجر مع إضافات شهية.",image:"https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=800&q=82",alt:"دبل برجر"},
       {id:"pepperoni-pizza",name:"بيتزا بيبروني",category:"pizza",price:8.00,tag:"بيتزا",description:"بيتزا بالجبنة والبيبروني وصوص الطماطم.",image:"https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=800&q=82",alt:"بيتزا بيبروني"},
       {id:"cheese-pizza",name:"بيتزا الجبنة",category:"pizza",price:7.00,tag:"كلاسيكية",description:"جبنة ذائبة وصوص طماطم على عجينة مخبوزة.",image:"https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?auto=format&fit=crop&w=800&q=82",alt:"بيتزا بالجبنة"},
       {id:"french-fries",name:"بطاطس مقلية",category:"sides",price:2.00,tag:"مقرمشة",description:"بطاطس ذهبية مناسبة مع كل وجبة.",image:"https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=82",alt:"بطاطس مقلية"},
@@ -470,9 +470,9 @@
         if(product && qty > 0) lines.push("• " + product.name + " × " + qty + " — " + money(product.price * qty));
       });
       lines.push("", "*المجموع الفرعي: " + money(subtotal()) + "*");
-      lines.push("رسوم التوصيل: غير محسوبة — يرجى تأكيدها من المطعم.");
+      lines.push("رسوم التوصيل: مجاناً.");
       if(notes) lines.push("", "ملاحظات: " + notes);
-      lines.push("", "يرجى تأكيد توفر الأصناف ورسوم التوصيل والإجمالي النهائي قبل اعتماد الطلب.");
+      lines.push("", "يرجى تأكيد توفر الأصناف والإجمالي النهائي قبل اعتماد الطلب.");
       return lines.join("\n");
     }
 
