@@ -1,22 +1,313 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بريكسو برجر | Brixo Burger</title>
+    <title>Brixo Burger | بريكسو برجر</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #171717;
+            color: #ffffff;
+            line-height: 1.8;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 18px 7%;
+            background: #222222;
+            border-bottom: 3px solid #e52b2b;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffcc00;
+        }
+
+        .logo span {
+            color: #ff3636;
+        }
+
+        nav {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #ffcc00;
+        }
+
+        .hero {
+            padding: 55px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 35px;
+            flex-wrap: wrap;
+            background: radial-gradient(
+                circle at top left,
+                #383020,
+                #171717 65%
+            );
+        }
+
+        .hero-text {
+            flex: 1 1 280px;
+        }
+
+        .hero h1 {
+            font-size: clamp(34px, 6vw, 58px);
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 span {
+            color: #ffcc00;
+        }
+
+        .hero p {
+            color: #cccccc;
+            margin-bottom: 25px;
+            max-width: 450px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #e52b2b;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 11px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #c91d1d;
+        }
+
+        .hero img {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+            border-radius: 20px;
+            border: 3px solid #ffcc00;
+            object-fit: cover;
+        }
+
+        .menu {
+            padding: 45px 7%;
+            text-align: center;
+        }
+
+        .menu h2 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .menu h2 span {
+            color: #ffcc00;
+        }
+
+        .subtitle {
+            color: #bbbbbb;
+            margin-bottom: 25px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(140px, 1fr)
+            );
+            gap: 16px;
+        }
+
+        .card {
+            background: #262626;
+            padding: 25px 12px;
+            border-radius: 14px;
+            border: 1px solid #404040;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: #ffcc00;
+        }
+
+        .card .emoji {
+            font-size: 38px;
+        }
+
+        .card h3 {
+            color: #ffcc00;
+            margin: 8px 0;
+        }
+
+        .card p {
+            color: #cccccc;
+            font-size: 14px;
+        }
+
+        .contact {
+            margin: 10px 7% 40px;
+            padding: 30px 18px;
+            text-align: center;
+            background: #262626;
+            border-radius: 16px;
+        }
+
+        .contact h2 {
+            margin-bottom: 8px;
+        }
+
+        .contact p {
+            color: #cccccc;
+            margin-bottom: 18px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #aaaaaa;
+            background: #101010;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .hero {
+                text-align: center;
+                padding-top: 35px;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero img {
+                max-width: 320px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Brixo Burger | بريكسو برجر</h1>
 
-    <h2>أشهى الوجبات تبدأ من هنا!</h2>
+    <header>
+        <div class="logo">BRIXO <span>BURGER</span></div>
 
-    <p>
-        نقدم لكم البرجر والبيتزا والبطاطس
-        بأشهى النكهات.
-    </p>
+        <nav>
+            <a href="#home">الرئيسية</a>
+            <a href="#menu">قائمة الطعام</a>
+            <a href="#contact">تواصل معنا</a>
+        </nav>
+    </header>
 
-    <img src="images/burger-1.jpg" alt="وجبة برجر">
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-text">
+                <h1>طعم يستحق<br><span>التجربة!</span></h1>
 
-    <h2>قريبًا: قائمة الطعام والأسعار</h2>
+                <p>
+                    أهلاً بكم في بريكسو برجر.
+                    استمتعوا بالبرجر والبيتزا والبطاطس
+                    والمقبلات في عالم من النكهات الشهية.
+                </p>
+
+                <a class="button" href="#menu">
+                    اكتشف قائمة الطعام
+                </a>
+            </div>
+
+            <div>
+                <img
+                    src="images/burger-1.jpg"
+                    alt="برجر بريكسو"
+                >
+            </div>
+        </section>
+
+        <section class="menu" id="menu">
+            <h2>اكتشف <span>قائمتنا</span></h2>
+
+            <p class="subtitle">
+                اختر وجبتك المفضلة
+            </p>
+
+            <div class="cards">
+                <div class="card">
+                    <div class="emoji">🍔</div>
+                    <h3>البرجر</h3>
+                    <p>نكهة غنية في كل قضمة</p>
+                </div>
+
+                <div class="card">
+                    <div class="emoji">🍕</div>
+                    <h3>البيتزا</h3>
+                    <p>طعم يجمع الجميع</p>
+                </div>
+
+                <div class="card">
+                    <div class="emoji">🍟</div>
+                    <h3>البطاطس</h3>
+                    <p>قرمشة لا تُقاوم</p>
+                </div>
+
+                <div class="card">
+                    <div class="emoji">🍗</div>
+                    <h3>المقبلات</h3>
+                    <p>إضافة لذيذة لوجبتك</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <h2>جاهز لتجربة بريكسو؟</h2>
+
+            <p>
+                اكتشف قائمتنا واختر وجبتك المفضلة.
+            </p>
+
+            <a class="button" href="#menu">
+                استعرض الوجبات
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        © Brixo Burger — بريكسو برجر
+    </footer>
+
 </body>
 </html>
