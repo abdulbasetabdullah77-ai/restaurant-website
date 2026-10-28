@@ -1,205 +1,522 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brixo Burger | بريكسو برجر</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#171717;color:#fff;line-height:1.8}
-header{background:#222;padding:16px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:3px solid #e52b2b}
-.logo{font-size:23px;font-weight:bold;color:#ffcc00}
-.logo span{color:#ff3636}
-nav{display:flex;gap:15px;flex-wrap:wrap}
-nav a{color:#fff;text-decoration:none}
-nav a:hover{color:#ffcc00}
-.hero{padding:45px 6%;display:flex;align-items:center;justify-content:space-between;gap:25px;flex-wrap:wrap;background:radial-gradient(circle at top left,#383020,#171717 70%)}
-.hero-text{flex:1 1 250px}
-.hero h1{font-size:clamp(34px,7vw,54px);line-height:1.4}
-.hero h1 span,.section-title span{color:#ffcc00}
-.hero p{color:#ccc;margin:12px 0 22px}
-.hero img{width:100%;max-width:350px;border-radius:18px;border:3px solid #ffcc00}
-.button{display:inline-block;background:#e52b2b;color:#fff;text-decoration:none;padding:10px 20px;border:0;border-radius:8px;font-weight:bold;cursor:pointer}
-.button:hover{background:#c91d1d}
-section.menu,section.cart-section{padding:35px 6%}
-.section-title{text-align:center;font-size:29px;margin-bottom:5px}
-.subtitle{text-align:center;color:#bbb;margin-bottom:24px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:15px}
-.card{background:#262626;border:1px solid #404040;border-radius:14px;padding:14px;text-align:center}
-.card img{width:100%;height:135px;object-fit:cover;border-radius:9px}
-.food-icon{font-size:56px;line-height:1.8}
-.card h3{color:#ffcc00;font-size:19px}
-.card p{color:#ccc;font-size:13px}
-.price{font-size:18px;font-weight:bold;margin:7px 0;color:#fff}
-.card button{width:100%;margin-top:5px}
-.cart-section{background:#202020}
-.cart-box{max-width:700px;margin:auto;background:#292929;padding:18px;border-radius:14px}
-.cart-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #444}
-.qty{display:flex;align-items:center;gap:8px}
-.qty button{background:#444;color:white;border:0;border-radius:5px;padding:2px 10px;font-size:18px}
-.total{font-size:21px;color:#ffcc00;font-weight:bold;margin:16px 0}
-.field{width:100%;margin:7px 0;padding:12px;border-radius:7px;border:1px solid #555;background:#171717;color:#fff;font-size:16px}
-label{display:block;margin-top:10px}
-.note{color:#bbb;font-size:12px}
-footer{text-align:center;padding:20px;background:#101010;color:#aaa;font-size:13px}
-@media(max-width:600px){header{justify-content:center}nav{justify-content:center}.hero{text-align:center}.hero img{max-width:320px;margin:auto}.hero p{margin-left:auto;margin-right:auto}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#202124">
+  <meta name="description" content="Brixo Burger — برجر وبيتزا ووجبات سريعة بطلب سهل عبر واتساب.">
+  <title>بريكسو برجر | Brixo Burger</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--red:#e52b32;--red-dark:#b91f28;--yellow:#ffd43b;--white:#fff;--ink:#202124;--ink-2:#292b30;--muted:#6b7280;--soft:#f5f5f3;--line:#e7e7e4;--green:#167d45;--radius:22px;--shadow:0 14px 36px rgba(26,26,26,.10)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:92px}
+    body{margin:0;background:var(--white);color:var(--ink);font-family:"Cairo",Tahoma,Arial,sans-serif;line-height:1.75}
+    body,button,input,textarea,select{font-family:"Cairo",Tahoma,Arial,sans-serif}
+    img{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    button{cursor:pointer}
+    button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #f6b900;outline-offset:3px}
+    .container{width:min(1160px,calc(100% - 36px));margin-inline:auto}
+    .topline{background:var(--yellow);color:var(--ink);font-size:.86rem;font-weight:800;text-align:center;padding:7px 12px}
+    header{position:sticky;top:0;z-index:20;background:rgba(32,33,36,.97);color:#fff;border-bottom:1px solid rgba(255,255,255,.09);backdrop-filter:blur(12px)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:76px}
+    .brand{display:flex;align-items:center;gap:11px;min-width:0}
+    .brand-mark{width:46px;height:46px;display:grid;place-items:center;background:var(--red);color:#fff;font-size:1.55rem;font-weight:900;border-radius:14px;box-shadow:inset 0 -4px rgba(0,0,0,.12);transform:rotate(-3deg)}
+    .brand-name{font-weight:900;font-size:1.08rem;line-height:1.25;white-space:nowrap}
+    .brand-name small{display:block;color:var(--yellow);font-family:Arial,sans-serif;font-size:.72rem;letter-spacing:1.2px;direction:ltr;text-align:right}
+    .nav-links{display:flex;align-items:center;gap:23px;color:#f1f1f1;font-weight:700;font-size:.91rem}
+    .nav-links a:hover{color:var(--yellow)}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .cart-button,.btn{border:0;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:900;transition:transform .18s,background .18s;min-height:46px;padding:11px 17px}
+    .cart-button{background:var(--yellow);color:var(--ink);white-space:nowrap}
+    .cart-count{display:inline-grid;place-items:center;min-width:24px;height:24px;padding:0 5px;border-radius:99px;background:var(--red);color:#fff;font-size:.78rem}
+    .btn:hover,.cart-button:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--red);color:#fff}
+    .btn-primary:hover{background:var(--red-dark)}
+    .btn-yellow{background:var(--yellow);color:var(--ink)}
+    .btn-dark{background:var(--ink);color:#fff}
+    .btn-outline{background:#fff;border:1px solid var(--line);color:var(--ink)}
+    .hero{background:var(--ink);color:#fff;overflow:hidden;position:relative}
+    .hero:before{content:"";position:absolute;width:400px;height:400px;border-radius:50%;background:rgba(229,43,50,.14);left:-170px;top:-180px}
+    .hero-grid{position:relative;display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:36px;padding-block:62px 70px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,212,59,.13);border:1px solid rgba(255,212,59,.35);color:var(--yellow);border-radius:99px;padding:6px 13px;font-size:.83rem;font-weight:800}
+    h1{font-size:clamp(2.3rem,5vw,4.25rem);line-height:1.22;letter-spacing:-1.5px;margin:18px 0 15px;font-weight:900}
+    h1 span{color:var(--yellow)}
+    .hero-copy{color:#d7d7d7;max-width:540px;font-size:1.04rem;margin:0 0 25px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+    .hero-note{display:flex;flex-wrap:wrap;gap:18px;margin-top:26px;color:#ddd;font-size:.88rem}
+    .hero-note span{display:flex;align-items:center;gap:7px}
+    .hero-visual{position:relative;min-width:0}
+    .hero-photo-wrap{border-radius:34px;overflow:hidden;aspect-ratio:1.08/1;background:#38393d;border:8px solid rgba(255,255,255,.08);box-shadow:0 24px 70px rgba(0,0,0,.35);transform:rotate(1deg)}
+    .hero-photo{width:100%;height:100%;object-fit:cover}
+    .hero-sticker{position:absolute;bottom:22px;right:-10px;background:var(--yellow);color:var(--ink);border-radius:18px;padding:12px 17px;font-weight:900;box-shadow:var(--shadow);transform:rotate(-4deg)}
+    .hero-sticker small{display:block;font-size:.73rem;font-weight:700}
+    .section{padding:76px 0}
+    .section-soft{background:var(--soft)}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:28px}
+    .section-kicker{color:var(--red);font-size:.82rem;font-weight:900;letter-spacing:.4px}
+    h2{font-size:clamp(1.8rem,3.3vw,2.65rem);line-height:1.3;margin:5px 0 7px;font-weight:900}
+    .section-desc{color:var(--muted);margin:0;max-width:620px}
+    .category-row{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:24px}
+    .category-btn{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:99px;padding:9px 17px;font-weight:800;min-height:42px}
+    .category-btn.active,.category-btn:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+    .menu-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:19px}
+    .product-card{background:#fff;border:1px solid #ececea;border-radius:var(--radius);overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,.035);display:flex;flex-direction:column;min-width:0;transition:transform .2s,box-shadow .2s}
+    .product-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .product-photo-wrap{position:relative;aspect-ratio:1.25/1;background:#e9e8e3;overflow:hidden}
+    .product-photo{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+    .product-card:hover .product-photo{transform:scale(1.04)}
+    .product-tag{position:absolute;top:12px;right:12px;background:var(--yellow);color:var(--ink);border-radius:99px;padding:4px 10px;font-size:.73rem;font-weight:900}
+    .product-content{padding:16px;display:flex;flex-direction:column;flex:1}
+    .product-content h3{font-size:1.03rem;margin:0 0 5px;font-weight:900}
+    .product-desc{color:var(--muted);font-size:.83rem;line-height:1.65;margin:0 0 15px;flex:1}
+    .product-bottom{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-top:auto}
+    .price{font-size:1.13rem;font-weight:900;direction:ltr;white-space:nowrap}
+    .add-btn{background:var(--red);color:#fff;border:0;border-radius:12px;min-width:44px;min-height:44px;font-size:1.25rem;font-weight:900}
+    .add-btn:hover{background:var(--red-dark)}
+    .price-note{font-size:.82rem;color:var(--muted);margin-top:17px}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .feature{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px}
+    .feature-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:#fff1b9;font-size:1.4rem;margin-bottom:13px}
+    .feature h3{margin:0 0 5px;font-size:1.04rem}
+    .feature p{margin:0;color:var(--muted);font-size:.9rem}
+    .order-section{background:var(--ink);color:#fff}
+    .order-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:30px;align-items:start}
+    .order-intro p{color:#d0d0d0}
+    .order-intro .section-kicker{color:var(--yellow)}
+    .order-hint{margin-top:20px;padding:14px;border:1px solid #4c4d51;background:#292b30;border-radius:14px;color:#ddd;font-size:.88rem}
+    .order-panel{background:#fff;color:var(--ink);border-radius:24px;padding:24px;box-shadow:var(--shadow)}
+    .panel-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+    .panel-title h3{margin:0;font-size:1.25rem}
+    .subtle{font-size:.82rem;color:var(--muted)}
+    .cart-empty{padding:22px 12px;text-align:center;color:var(--muted);background:var(--soft);border-radius:14px;margin-bottom:18px}
+    .cart-list{display:flex;flex-direction:column;gap:10px;margin-bottom:17px}
+    .cart-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+    .cart-row:last-child{border-bottom:0}
+    .cart-product-name{font-weight:900}
+    .cart-unit{font-size:.8rem;color:var(--muted)}
+    .cart-controls{display:flex;align-items:center;gap:8px}
+    .qty-btn{width:34px;height:34px;border:1px solid var(--line);background:#fff;border-radius:10px;font-size:1.1rem;font-weight:900}
+    .qty-number{min-width:18px;text-align:center;font-weight:900}
+    .remove-btn{border:0;background:transparent;color:var(--red);font-weight:800;font-size:.8rem;padding:4px}
+    .totals{background:var(--soft);padding:14px;border-radius:14px;margin:12px 0 20px}
+    .total-line{display:flex;justify-content:space-between;gap:12px;padding:3px 0}
+    .total-line.final{border-top:1px solid #ddd;margin-top:7px;padding-top:10px;font-size:1.15rem;font-weight:900}
+    .delivery-disclaimer{color:#6a4b00;background:#fff4c5;border:1px solid #ffe28a;border-radius:12px;padding:11px 12px;font-size:.82rem;margin:12px 0 19px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+    .field{display:flex;flex-direction:column;gap:5px}
+    .field.full{grid-column:1/-1}
+    .field label{font-size:.86rem;font-weight:800}
+    .field input,.field textarea,.field select{width:100%;min-height:47px;border:1px solid #d9d9d5;border-radius:12px;padding:10px 12px;font-size:.95rem;background:#fff;color:var(--ink)}
+    .field textarea{min-height:82px;resize:vertical}
+    .field input[aria-invalid="true"],.field textarea[aria-invalid="true"]{border-color:var(--red);box-shadow:0 0 0 2px rgba(229,43,50,.1)}
+    .field-error{font-size:.76rem;color:var(--red);min-height:0}
+    .field-error:empty{display:none}
+    .form-actions{display:flex;flex-direction:column;gap:10px;margin-top:17px}
+    .form-actions .btn{width:100%;min-height:52px;font-size:1rem}
+    .privacy-note{font-size:.78rem;color:var(--muted);text-align:center;margin:8px 0 0}
+    .status-message{display:none;padding:11px 13px;border-radius:12px;margin:12px 0 0;font-size:.86rem}
+    .status-message.show{display:block}
+    .status-message.error{background:#fff0f0;color:#a71920;border:1px solid #ffc8ca}
+    .status-message.success{background:#eaf8ef;color:#17663a;border:1px solid #bce6ca}
+    footer{background:#17181a;color:#ccc;padding:28px 0}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+    .footer-brand{font-weight:900;color:#fff}
+    .footer-small{font-size:.82rem;color:#aaa}
+    .footer-links{display:flex;gap:16px;flex-wrap:wrap;font-size:.86rem}
+    .footer-links a:hover{color:var(--yellow)}
+    .mobile-cart-bar{display:none}
+    .toast{position:fixed;z-index:50;bottom:22px;left:22px;max-width:min(360px,calc(100% - 44px));background:#202124;color:#fff;border:1px solid #444;border-radius:14px;padding:12px 16px;box-shadow:var(--shadow);opacity:0;transform:translateY(12px);pointer-events:none;transition:.2s}
+    .toast.show{opacity:1;transform:translateY(0)}
+    @media(max-width:1000px){.menu-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nav-links{gap:13px}.hero-grid{gap:25px}.order-grid{grid-template-columns:1fr}.order-intro{max-width:720px}}
+    @media(max-width:700px){.container{width:min(100% - 28px,560px)}.topline{font-size:.76rem}.nav{min-height:66px}.brand-mark{width:40px;height:40px;border-radius:12px}.brand-name{font-size:.96rem}.nav-links{display:none}.cart-button{min-height:42px;padding:8px 11px;font-size:.84rem}.hero-grid{grid-template-columns:1fr;padding-block:42px 48px;gap:28px}.hero-copy{font-size:.97rem}.hero-visual{max-width:480px;margin-inline:auto;width:100%}.hero-photo-wrap{border-width:5px;border-radius:25px;aspect-ratio:1.15/1}.hero-sticker{right:0;bottom:14px}.section{padding:54px 0}.section-head{align-items:start;flex-direction:column;gap:8px;margin-bottom:22px}.menu-grid{gap:12px}.product-content{padding:12px}.product-content h3{font-size:.94rem}.product-desc{font-size:.78rem}.price{font-size:1rem}.add-btn{min-width:42px;min-height:42px}.features{grid-template-columns:1fr;gap:12px}.feature{padding:18px}.order-panel{padding:17px;border-radius:20px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.footer-inner{align-items:flex-start;flex-direction:column}.mobile-cart-bar{display:flex;position:fixed;z-index:18;bottom:0;right:0;left:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(32,33,36,.97);backdrop-filter:blur(12px);border-top:1px solid #424348;align-items:center;justify-content:space-between;gap:12px;color:#fff}.mobile-cart-bar .btn{min-height:44px;padding:8px 14px}.mobile-cart-summary{font-weight:900;font-size:.92rem}.mobile-cart-summary small{display:block;color:#bbb;font-size:.73rem;font-weight:500}.toast{bottom:84px;left:14px;max-width:calc(100% - 28px)}body{padding-bottom:68px}}
+    @media(max-width:370px){.container{width:calc(100% - 22px)}.brand-name{font-size:.85rem}.cart-button{font-size:.77rem;padding-inline:8px}.menu-grid{gap:9px}.product-content{padding:10px}.product-bottom{gap:5px}.price{font-size:.9rem}.add-btn{min-width:38px;min-height:38px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+  </style>
 </head>
 <body>
-<header>
-  <div class="logo">BRIXO <span>BURGER</span></div>
-  <nav>
-    <a href="#home">الرئيسية</a>
-    <a href="#menu">قائمة الطعام</a>
-    <a href="#cart">سلة الطلبات (<span id="cart-count">0</span>)</a>
-  </nav>
-</header>
-
-<main>
-<section class="hero" id="home">
-  <div class="hero-text">
-    <h1>طعم يستحق<br><span>التجربة!</span></h1>
-    <p>أهلاً بكم في بريكسو برجر. اكتشفوا وجباتنا واختروا ما يناسبكم.</p>
-    <a class="button" href="#menu">تصفح قائمة الطعام</a>
-  </div>
-  <img src="images/burger-1.jpg" alt="برجر بريكسو">
-</section>
-
-<section class="menu" id="menu">
-  <h2 class="section-title">قائمة <span>الطعام</span></h2>
-  <p class="subtitle">أسعار تجريبية بالريال السعودي قابلة للتغيير قبل الإطلاق</p>
-  <div class="cards" id="products"></div>
-</section>
-
-<section class="cart-section" id="cart">
-  <h2 class="section-title">سلة <span>الطلبات</span></h2>
-  <p class="subtitle">راجع طلبك قبل إرساله إلى المطعم</p>
-  <div class="cart-box">
-    <div id="cart-items">لم تضف أي وجبة بعد.</div>
-    <div class="total">الإجمالي: <span id="total">0.00</span> ر.س</div>
-    <label for="customer">اسم العميل</label>
-    <input class="field" id="customer" placeholder="اكتب اسمك">
-    <label for="address">العنوان أو منطقة التوصيل</label>
-    <input class="field" id="address" placeholder="المدينة والحي والعنوان">
-    <label for="phone">رقم تواصل العميل (اختياري)</label>
-    <input class="field" id="phone" type="tel" placeholder="رقم هاتفك">
-    <label for="notes">ملاحظات الطلب (اختياري)</label>
-    <textarea class="field" id="notes" rows="2" placeholder="مثلاً: بدون بصل"></textarea>
-    <p class="note">الأسعار تجريبية. رسوم التوصيل غير محسوبة بعد. إرسال الطلب يفتح واتساب لتراجع الرسالة وترسلها بنفسك.</p>
-    <button class="button" style="width:100%;margin-top:14px" onclick="sendOrder()">إرسال الطلب عبر واتساب</button>
-    <p id="message" role="status" style="margin-top:10px"></p>
-  </div>
-</section>
-</main>
-
-<footer>© Brixo Burger — بريكسو برجر</footer>
-
-<script>
-const WHATSAPP_NUMBER = "16729032523";
-
-const products = [
-  {id:1,name:"برجر عادي",price:5,icon:"🍔",desc:"برجر لذيذ"},
-  {id:2,name:"بيتزا صغيرة",price:8,icon:"🍕",desc:"بيتزا شهية"},
-  {id:3,name:"بطاطس",price:2,icon:"🍟",desc:"بطاطس مقرمشة"},
-  {id:4,name:"مقبلات",price:4,icon:"🍗",desc:"إضافة لذيذة"}
-];
-
-const cart = {};
-
-function renderProducts(){
-  document.getElementById("products").innerHTML = products.map(p => `
-    <article class="card">
-      <div class="food-icon" aria-hidden="true">${p.icon}</div>
-      <h3>${p.name}</h3>
-      <p>${p.desc}</p>
-      <div class="price">${p.$${p.price.toFixed(2)}
-      <button class="button" onclick="addToCart(${p.id})">أضف إلى السلة</button>
-    </article>
-  `).join("");
-}
-
-function addToCart(id){
-  cart[id] = (cart[id] || 0) + 1;
-  renderCart();
-}
-
-function changeQty(id,amount){
-  cart[id] = (cart[id] || 0) + amount;
-  if(cart[id] <= 0) delete cart[id];
-  renderCart();
-}
-
-function renderCart(){
-  const entries = products.filter(p => cart[p.id]);
-  const count = entries.reduce((sum,p) => sum + cart[p.id],0);
-  const total = entries.reduce((sum,p) => sum + p.price * cart[p.id],0);
-
-  document.getElementById("cart-count").textContent = count;
-  document.getElementById("total").textContent = total.toFixed(2);
-
-  const container = document.getElementById("cart-items");
-  if(!entries.length){
-    container.textContent = "لم تضف أي وجبة بعد.";
-    return;
-  }
-
-  container.innerHTML = entries.map(p => `
-    <div class="cart-row">
-      <div>
-        <strong>${p.name}</strong><br>
-        <small>${(p.price * cart[p.id]).toFixed(2)} ر.س</small>
-      </div>
-      <div class="qty">
-        <button aria-label="زيادة ${p.name}" onclick="changeQty(${p.id},1)">+</button>
-        <span>${cart[p.id]}</span>
-        <button aria-label="تقليل ${p.name}" onclick="changeQty(${p.id},-1)">−</button>
+  <div class="topline">🍔 الطعم اللي يستاهل التجربة — أهلاً بك في بريكسو برجر</div>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="بريكسو برجر، الصفحة الرئيسية">
+        <span class="brand-mark" aria-hidden="true">B<span style="color:#ffd43b">X</span></span>
+        <span class="brand-name">بريكسو برجر<small>BRIXO BURGER</small></span>
+      </a>
+      <nav class="nav-links" aria-label="التنقل الرئيسي">
+        <a href="#home">الرئيسية</a><a href="#menu">قائمة الطعام</a><a href="#features">لماذا بريكسو؟</a><a href="#order">اطلب الآن</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="cart-button" type="button" id="headerCartButton">السلة <span class="cart-count" id="headerCartCount">0</span></button>
       </div>
     </div>
-  `).join("");
-}
+  </header>
 
-function sendOrder(){
-  const entries = products.filter(p => cart[p.id]);
-  const message = document.getElementById("message");
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">🔥 وجبتك المفضلة تبدأ هنا</span>
+          <h1>قرمشة تسمعها…<br><span>وطعم تتذكره.</span></h1>
+          <p class="hero-copy">برجر شهي، بيتزا، بطاطس ومقبلات — اختَر وجبتك، أضفها إلى السلة، وأرسل تفاصيل طلبك عبر واتساب بسهولة.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#menu">تصفّح قائمة الطعام <span aria-hidden="true">←</span></a>
+            <a class="btn btn-yellow" href="#order">جهّز طلبك</a>
+          </div>
+          <div class="hero-note">
+            <span>✓ قائمة سهلة وواضحة</span><span>✓ طلب عبر واتساب</span><span>✓ مناسب للهاتف</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-photo-wrap">
+            <img class="hero-photo" src="images/burger-1.jpg" alt="برجر شهي من بريكسو برجر" fetchpriority="high"
+                 onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1100&q=85';">
+          </div>
+          <div class="hero-sticker">Brixo Bite <small>لقمة تفرق 😋</small></div>
+        </div>
+      </div>
+    </section>
 
-  if(!entries.length){
-    message.textContent = "أضف وجبة واحدة على الأقل قبل إرسال الطلب.";
-    return;
-  }
+    <section class="section" id="menu">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="section-kicker">قائمة الطعام</div><h2>اختَر وجبتك المفضلة</h2><p class="section-desc">اضغط علامة + لإضافة الوجبة إلى السلة. الأسعار المعروضة تجريبية ويمكنك تعديلها قبل نشر الموقع.</p></div>
+          <a class="btn btn-outline" href="#order">انتقل إلى السلة ↓</a>
+        </div>
+        <div class="category-row" id="categoryRow" aria-label="تصنيف الوجبات">
+          <button class="category-btn active" type="button" data-category="all">الكل</button>
+          <button class="category-btn" type="button" data-category="burger">برجر</button>
+          <button class="category-btn" type="button" data-category="pizza">بيتزا</button>
+          <button class="category-btn" type="button" data-category="sides">بطاطس ومقبلات</button>
+          <button class="category-btn" type="button" data-category="drinks">مشروبات</button>
+        </div>
+        <div class="menu-grid" id="menuGrid" aria-live="polite"></div>
+        <p class="price-note">تنبيه: هذه أسعار نموذجية بالدولار الأمريكي لأغراض تجربة الموقع فقط، وليست أسعار بيع مؤكدة. حدّث الأسعار ومكونات الوجبات قبل استقبال الطلبات الفعلية.</p>
+      </div>
+    </section>
 
-  const customer = document.getElementById("customer").value.trim();
-  const address = document.getElementById("address").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  const notes = document.getElementById("notes").value.trim();
+    <section class="section section-soft" id="features">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="section-kicker">تجربة بريكسو</div><h2>طلبك أوضح وأسهل</h2><p class="section-desc">صُممت الصفحة لتكون مباشرة وسهلة الاستخدام على الجوال والكمبيوتر.</p></div>
+        </div>
+        <div class="features">
+          <article class="feature"><div class="feature-icon" aria-hidden="true">🍔</div><h3>قائمة مرتبة</h3><p>تصفّح الأصناف حسب النوع، وشاهد السعر قبل إضافة الوجبة إلى السلة.</p></article>
+          <article class="feature"><div class="feature-icon" aria-hidden="true">🛒</div><h3>سلة قابلة للتعديل</h3><p>زِد الكمية أو قلّلها أو احذف الصنف، ويُعاد حساب الإجمالي تلقائياً.</p></article>
+          <article class="feature"><div class="feature-icon" aria-hidden="true">💬</div><h3>تأكيد عبر واتساب</h3><p>تُجهّز رسالة تحتوي تفاصيل الطلب، ثم تراجعها في واتساب قبل أن ترسلها بنفسك.</p></article>
+        </div>
+      </div>
+    </section>
 
-  if(!customer || !address){
-    message.textContent = "يرجى كتابة اسمك وعنوان التوصيل أولاً.";
-    return;
-  }
+    <section class="section order-section" id="order">
+      <div class="container order-grid">
+        <div class="order-intro">
+          <div class="section-kicker">الخطوة الأخيرة</div>
+          <h2>جهّز طلبك</h2>
+          <p>راجع الأصناف والكميات، ثم أدخل معلومات التواصل والتوصيل. سيفتح واتساب برسالة جاهزة لتراجعها بنفسك.</p>
+          <div class="order-hint">🔒 لن تُرسل الرسالة تلقائياً. ستنتقل إلى واتساب، ويمكنك مراجعة النص وتعديله قبل الضغط على إرسال.</div>
+        </div>
+        <div class="order-panel">
+          <div class="panel-title"><h3>سلة الطلب</h3><span class="subtle" id="cartItemCount">0 أصناف</span></div>
+          <div id="cartContents"></div>
+          <div class="totals" aria-live="polite">
+            <div class="total-line"><span>المجموع الفرعي</span><strong id="subtotal">$0.00</strong></div>
+            <div class="total-line"><span>رسوم التوصيل</span><strong>تُحدّد لاحقاً</strong></div>
+            <div class="total-line final"><span>إجمالي الطعام</span><strong id="grandTotal">$0.00</strong></div>
+          </div>
+          <div class="delivery-disclaimer">مهم: إجمالي الطلب لا يشمل رسوم التوصيل. سيؤكد المطعم رسوم التوصيل معك قبل اعتماد الطلب.</div>
 
-  const total = entries.reduce((sum,p) => sum + p.price * cart[p.id],0);
-  const lines = [
-    "طلب جديد من موقع Brixo Burger",
-    "الاسم: " + customer,
-    "العنوان: " + address,
-    phone ? "رقم العميل: " + phone : "",
-    "",
-    "تفاصيل الطلب:",
-    ...entries.map(p => `${p.name} × ${cart[p.id]} = ${(p.price * cart[p.id]).toFixed(2)} ر.س`),
-    "",
-    "الإجمالي المبدئي: " + total.toFixed(2) + " ر.س",
-    "رسوم التوصيل غير محسوبة",
-    notes ? "ملاحظات: " + notes : ""
-  ].filter(Boolean);
+          <form id="orderForm" novalidate>
+            <div class="form-grid">
+              <div class="field">
+                <label for="customerName">الاسم الكامل *</label>
+                <input id="customerName" name="customerName" autocomplete="name" maxlength="80" required placeholder="اكتب اسمك">
+                <span class="field-error" id="nameError"></span>
+              </div>
+              <div class="field">
+                <label for="customerPhone">رقم الهاتف *</label>
+                <input id="customerPhone" name="customerPhone" type="tel" inputmode="tel" autocomplete="tel" maxlength="25" required placeholder="مثال: 7xxxxxxxx">
+                <span class="field-error" id="phoneError"></span>
+              </div>
+              <div class="field full">
+                <label for="customerAddress">عنوان التوصيل *</label>
+                <input id="customerAddress" name="customerAddress" autocomplete="street-address" maxlength="180" required placeholder="المدينة، الحي، الشارع، أقرب معلم">
+                <span class="field-error" id="addressError"></span>
+              </div>
+              <div class="field full">
+                <label for="orderNotes">ملاحظات (اختياري)</label>
+                <textarea id="orderNotes" name="orderNotes" maxlength="500" placeholder="مثلاً: بدون مخلل، أو أي تعليمات إضافية"></textarea>
+              </div>
+            </div>
+            <div id="formStatus" class="status-message" role="status" aria-live="polite"></div>
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">مراجعة الطلب في واتساب <span aria-hidden="true">↗</span></button>
+              <button class="btn btn-outline" type="button" id="testWhatsAppButton">اختبار رابط واتساب (بدون طلب)</button>
+            </div>
+            <p class="privacy-note">بياناتك تُستخدم لتجهيز رسالة الطلب فقط من هذه الصفحة.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(lines.join("\n"));
-  window.open(url,"_blank");
-  message.textContent = "راجع تفاصيل الطلب في واتساب ثم أرسله للمطعم.";
-}
+  <footer>
+    <div class="container footer-inner">
+      <div><div class="footer-brand">بريكسو برجر | BRIXO BURGER</div><div class="footer-small">هوية حمراء وصفراء — طعم يستاهل التجربة.</div></div>
+      <div class="footer-links"><a href="#home">الرئيسية</a><a href="#menu">قائمة الطعام</a><a href="#order">اطلب الآن</a></div>
+      <div class="footer-small">© <span id="year"></span> Brixo Burger</div>
+    </div>
+  </footer>
 
-renderProducts();
-renderCart();
-</script>
+  <div class="mobile-cart-bar" aria-label="ملخص السلة السريع">
+    <div class="mobile-cart-summary"><span id="mobileCartTotal">$0.00</span><small><span id="mobileCartCount">0</span> وجبة في السلة</small></div>
+    <a class="btn btn-yellow" href="#order">عرض السلة ←</a>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    "use strict";
+
+    // رقم واتساب بصيغة دولية، أرقام فقط دون + أو مسافات داخل رابط wa.me.
+    const WHATSAPP_NUMBER = "16729032523";
+
+    // أسعار تجريبية بالدولار الأمريكي. عدّلها إلى الأسعار الحقيقية قبل نشر الموقع.
+    const PRODUCTS = [
+      {id:"classic-burger",name:"كلاسيك برجر",category:"burger",price:5.00,tag:"الأكثر طلباً",description:"برجر كلاسيكي مع الخس والطماطم والصوص.",image:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=82",alt:"برجر كلاسيكي"},
+      {id:"cheese-burger",name:"تشيز برجر",category:"burger",price:6.00,tag:"جبنة لذيذة",description:"برجر مع الجبنة الذائبة وخبز طري.",image:"https://images.unsplash.com/photo-1553979459-d2229ba7433a?auto=format&fit=crop&w=800&q=82",alt:"تشيز برجر"},
+      {id:"double-burger",name:"دبل برجر",category:"burger",price:8.00,tag:"وجبة دسمة",description:"طبقتان من البرجر مع إضافات شهية.",image:"https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=82",alt:"دبل برجر"},
+      {id:"pepperoni-pizza",name:"بيتزا بيبروني",category:"pizza",price:8.00,tag:"بيتزا",description:"بيتزا بالجبنة والبيبروني وصوص الطماطم.",image:"https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=800&q=82",alt:"بيتزا بيبروني"},
+      {id:"cheese-pizza",name:"بيتزا الجبنة",category:"pizza",price:7.00,tag:"كلاسيكية",description:"جبنة ذائبة وصوص طماطم على عجينة مخبوزة.",image:"https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?auto=format&fit=crop&w=800&q=82",alt:"بيتزا بالجبنة"},
+      {id:"french-fries",name:"بطاطس مقلية",category:"sides",price:2.00,tag:"مقرمشة",description:"بطاطس ذهبية مناسبة مع كل وجبة.",image:"https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=82",alt:"بطاطس مقلية"},
+      {id:"chicken-nuggets",name:"قطع دجاج مقرمشة",category:"sides",price:4.00,tag:"مقبلات",description:"قطع دجاج بقرمشة شهية للتغميس.",image:"https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=800&q=82",alt:"قطع دجاج مقرمشة"},
+      {id:"soft-drink",name:"مشروب غازي",category:"drinks",price:1.00,tag:"بارد ومنعش",description:"مشروب بارد يكمّل وجبتك.",image:"https://images.unsplash.com/photo-1581636625402-29b2a704ef13?auto=format&fit=crop&w=800&q=82",alt:"مشروب بارد"}
+    ];
+
+    const state = {cart:{},category:"all"};
+    const $ = (selector, root=document) => root.querySelector(selector);
+    const money = amount => "$" + Number(amount).toFixed(2);
+    const productById = id => PRODUCTS.find(product => product.id === id);
+    const totalItems = () => Object.values(state.cart).reduce((sum,qty) => sum + qty, 0);
+    const subtotal = () => Object.entries(state.cart).reduce((sum,[id,qty]) => {
+      const product = productById(id);
+      return sum + (product ? product.price * qty : 0);
+    },0);
+
+    function escapeHtml(value){
+      return String(value).replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
+    }
+
+    function renderProducts(){
+      const grid = $("#menuGrid");
+      const visible = PRODUCTS.filter(product => state.category === "all" || product.category === state.category);
+      grid.innerHTML = visible.map(product => `
+        <article class="product-card">
+          <div class="product-photo-wrap">
+            <img class="product-photo" src="${product.image}" alt="${escapeHtml(product.alt)}" loading="lazy" decoding="async">
+            <span class="product-tag">${escapeHtml(product.tag)}</span>
+          </div>
+          <div class="product-content">
+            <h3>${escapeHtml(product.name)}</h3>
+            <p class="product-desc">${escapeHtml(product.description)}</p>
+            <div class="product-bottom">
+              <span class="price">${money(product.price)}</span>
+              <button class="add-btn" type="button" data-add="${product.id}" aria-label="إضافة ${escapeHtml(product.name)} إلى السلة">+</button>
+            </div>
+          </div>
+        </article>`).join("");
+    }
+
+    function renderCart(){
+      const contents = $("#cartContents");
+      const entries = Object.entries(state.cart).filter(([id,qty]) => productById(id) && qty > 0);
+      const count = totalItems();
+      $("#headerCartCount").textContent = count;
+      $("#cartItemCount").textContent = count + (count === 1 ? " صنف" : " أصناف");
+      $("#subtotal").textContent = money(subtotal());
+      $("#grandTotal").textContent = money(subtotal());
+      $("#mobileCartTotal").textContent = money(subtotal());
+      $("#mobileCartCount").textContent = count;
+
+      if(!entries.length){
+        contents.innerHTML = '<div class="cart-empty">🛒 السلة فارغة حالياً.<br>أضف وجبتك من قائمة الطعام للبدء.</div>';
+        return;
+      }
+
+      contents.innerHTML = '<div class="cart-list">' + entries.map(([id,qty]) => {
+        const product = productById(id);
+        return `<div class="cart-row">
+          <div><div class="cart-product-name">${escapeHtml(product.name)}</div>
+          <div class="cart-unit">${money(product.price)} × ${qty} = <strong>${money(product.price * qty)}</strong></div>
+          <button class="remove-btn" type="button" data-remove="${id}">حذف الصنف</button></div>
+          <div class="cart-controls">
+            <button class="qty-btn" type="button" data-decrease="${id}" aria-label="تقليل كمية ${escapeHtml(product.name)}">−</button>
+            <span class="qty-number" aria-label="الكمية">${qty}</span>
+            <button class="qty-btn" type="button" data-increase="${id}" aria-label="زيادة كمية ${escapeHtml(product.name)}">+</button>
+          </div>
+        </div>`;
+      }).join("") + '</div>';
+    }
+
+    function showToast(message){
+      const toast = $("#toast");
+      toast.textContent = message;
+      toast.classList.add("show");
+      window.clearTimeout(showToast.timer);
+      showToast.timer = window.setTimeout(() => toast.classList.remove("show"),2600);
+    }
+
+    function addToCart(id){
+      if(!productById(id)) return;
+      state.cart[id] = (state.cart[id] || 0) + 1;
+      renderCart();
+      showToast("تمت إضافة " + productById(id).name + " إلى السلة");
+    }
+
+    function changeQuantity(id,delta){
+      if(!state.cart[id]) return;
+      state.cart[id] += delta;
+      if(state.cart[id] <= 0) delete state.cart[id];
+      renderCart();
+    }
+
+    $("#categoryRow").addEventListener("click",event => {
+      const button = event.target.closest("[data-category]");
+      if(!button) return;
+      state.category = button.dataset.category;
+      $("#categoryRow").querySelectorAll(".category-btn").forEach(item => item.classList.toggle("active",item === button));
+      renderProducts();
+    });
+
+    $("#menuGrid").addEventListener("click",event => {
+      const button = event.target.closest("[data-add]");
+      if(button) addToCart(button.dataset.add);
+    });
+
+    $("#cartContents").addEventListener("click",event => {
+      const button = event.target.closest("button");
+      if(!button) return;
+      if(button.dataset.increase) changeQuantity(button.dataset.increase,1);
+      if(button.dataset.decrease) changeQuantity(button.dataset.decrease,-1);
+      if(button.dataset.remove){ delete state.cart[button.dataset.remove]; renderCart(); }
+    });
+
+    function clearFieldErrors(){
+      ["customerName","customerPhone","customerAddress"].forEach(id => {
+        const input = $("#"+id);
+        input.removeAttribute("aria-invalid");
+      });
+      ["nameError","phoneError","addressError"].forEach(id => $("#"+id).textContent = "");
+      const status = $("#formStatus");
+      status.className = "status-message";
+      status.textContent = "";
+    }
+
+    function fieldError(inputId,errorId,message){
+      $("#"+inputId).setAttribute("aria-invalid","true");
+      $("#"+errorId).textContent = message;
+    }
+
+    function validateForm(){
+      clearFieldErrors();
+      let valid = true;
+      const name = $("#customerName").value.trim();
+      const phone = $("#customerPhone").value.trim();
+      const address = $("#customerAddress").value.trim();
+
+      if(!name || name.length < 2){
+        fieldError("customerName","nameError","اكتب الاسم (حرفان على الأقل).");
+        valid = false;
+      }
+      const phoneDigits = phone.replace(/\D/g,"");
+      if(!phone || phoneDigits.length < 7 || phoneDigits.length > 15 || !/^[+0-9()\-\s.]+$/.test(phone)){
+        fieldError("customerPhone","phoneError","أدخل رقم هاتف صحيحاً من 7 إلى 15 رقماً، مع رمز الدولة إن أمكن.");
+        valid = false;
+      }
+      if(!address || address.length < 5){
+        fieldError("customerAddress","addressError","اكتب عنواناً واضحاً من 5 أحرف على الأقل.");
+        valid = false;
+      }
+      if(totalItems() === 0){
+        const status = $("#formStatus");
+        status.textContent = "السلة فارغة. أضف وجبة واحدة على الأقل قبل تجهيز الطلب.";
+        status.className = "status-message show error";
+        valid = false;
+      }
+      if(!valid){
+        const firstInvalid = document.querySelector('[aria-invalid="true"]');
+        if(firstInvalid) firstInvalid.focus();
+      }
+      return valid;
+    }
+
+    function buildWhatsAppMessage(){
+      const name = $("#customerName").value.trim();
+      const phone = $("#customerPhone").value.trim();
+      const address = $("#customerAddress").value.trim();
+      const notes = $("#orderNotes").value.trim();
+      const lines = [
+        "🍔 *طلب جديد — بريكسو برجر | BRIXO BURGER*",
+        "",
+        "*بيانات العميل*",
+        "الاسم: " + name,
+        "هاتف العميل: " + phone,
+        "العنوان: " + address,
+        "",
+        "*تفاصيل الطلب*"
+      ];
+      Object.entries(state.cart).forEach(([id,qty]) => {
+        const product = productById(id);
+        if(product && qty > 0) lines.push("• " + product.name + " × " + qty + " — " + money(product.price * qty));
+      });
+      lines.push("", "*المجموع الفرعي: " + money(subtotal()) + "*");
+      lines.push("رسوم التوصيل: غير محسوبة — يرجى تأكيدها من المطعم.");
+      if(notes) lines.push("", "ملاحظات: " + notes);
+      lines.push("", "يرجى تأكيد توفر الأصناف ورسوم التوصيل والإجمالي النهائي قبل اعتماد الطلب.");
+      return lines.join("\n");
+    }
+
+    $("#orderForm").addEventListener("submit",event => {
+      event.preventDefault();
+      if(!validateForm()) return;
+      const message = buildWhatsAppMessage();
+      const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+      const status = $("#formStatus");
+      status.textContent = "تم التحقق من البيانات وتجهيز الرسالة. سيفتح واتساب الآن لمراجعتها؛ لن يُرسل الطلب حتى تضغط إرسال بنفسك.";
+      status.className = "status-message show success";
+      // التنقل في الصفحة نفسها أكثر موثوقية على بعض متصفحات الجوال من فتح نافذة منبثقة.
+      window.location.href = url;
+    });
+
+    $("#testWhatsAppButton").addEventListener("click",() => {
+      const url = "https://wa.me/" + WHATSAPP_NUMBER;
+      window.open(url,"_blank","noopener,noreferrer");
+      const status = $("#formStatus");
+      status.textContent = "اختبار الرابط فقط: لم تُضف بيانات طلب ولم تُرسل أي رسالة. إذا لم يفتح واتساب، تأكد من اتصال الإنترنت وتثبيت التطبيق.";
+      status.className = "status-message show success";
+    });
+
+    $("#headerCartButton").addEventListener("click",() => {
+      $("#order").scrollIntoView({behavior:"smooth",block:"start"});
+    });
+
+    $("#year").textContent = new Date().getFullYear();
+    renderProducts();
+    renderCart();
+
+    // اختبار داخلي بسيط للبيانات والحسابات دون إرسال أي طلب.
+    (function runBasicChecks(){
+      const ids = PRODUCTS.map(product => product.id);
+      const idsUnique = new Set(ids).size === ids.length;
+      const pricesValid = PRODUCTS.every(product => Number.isFinite(product.price) && product.price >= 0);
+      const numberValid = /^\d{8,15}$/.test(WHATSAPP_NUMBER);
+      if(!idsUnique || !pricesValid || !numberValid){
+        console.error("Brixo basic checks failed", {idsUnique,pricesValid,numberValid});
+      } else {
+        console.info("Brixo basic checks passed: unique product IDs, valid prices, WhatsApp number format.");
+      }
+    })();
+  </script>
 </body>
 </html>
