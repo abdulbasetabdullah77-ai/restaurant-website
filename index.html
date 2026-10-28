@@ -2,312 +2,204 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brixo Burger | بريكسو برجر</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #171717;
-            color: #ffffff;
-            line-height: 1.8;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            padding: 18px 7%;
-            background: #222222;
-            border-bottom: 3px solid #e52b2b;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ffcc00;
-        }
-
-        .logo span {
-            color: #ff3636;
-        }
-
-        nav {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        nav a:hover {
-            color: #ffcc00;
-        }
-
-        .hero {
-            padding: 55px 7%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 35px;
-            flex-wrap: wrap;
-            background: radial-gradient(
-                circle at top left,
-                #383020,
-                #171717 65%
-            );
-        }
-
-        .hero-text {
-            flex: 1 1 280px;
-        }
-
-        .hero h1 {
-            font-size: clamp(34px, 6vw, 58px);
-            line-height: 1.4;
-            margin-bottom: 12px;
-        }
-
-        .hero h1 span {
-            color: #ffcc00;
-        }
-
-        .hero p {
-            color: #cccccc;
-            margin-bottom: 25px;
-            max-width: 450px;
-        }
-
-        .button {
-            display: inline-block;
-            background: #e52b2b;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 11px 24px;
-            border-radius: 8px;
-            font-weight: bold;
-        }
-
-        .button:hover {
-            background: #c91d1d;
-        }
-
-        .hero img {
-            display: block;
-            width: 100%;
-            max-width: 400px;
-            margin: auto;
-            border-radius: 20px;
-            border: 3px solid #ffcc00;
-            object-fit: cover;
-        }
-
-        .menu {
-            padding: 45px 7%;
-            text-align: center;
-        }
-
-        .menu h2 {
-            font-size: 30px;
-            margin-bottom: 8px;
-        }
-
-        .menu h2 span {
-            color: #ffcc00;
-        }
-
-        .subtitle {
-            color: #bbbbbb;
-            margin-bottom: 25px;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(140px, 1fr)
-            );
-            gap: 16px;
-        }
-
-        .card {
-            background: #262626;
-            padding: 25px 12px;
-            border-radius: 14px;
-            border: 1px solid #404040;
-            transition: transform 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: #ffcc00;
-        }
-
-        .card .emoji {
-            font-size: 38px;
-        }
-
-        .card h3 {
-            color: #ffcc00;
-            margin: 8px 0;
-        }
-
-        .card p {
-            color: #cccccc;
-            font-size: 14px;
-        }
-
-        .contact {
-            margin: 10px 7% 40px;
-            padding: 30px 18px;
-            text-align: center;
-            background: #262626;
-            border-radius: 16px;
-        }
-
-        .contact h2 {
-            margin-bottom: 8px;
-        }
-
-        .contact p {
-            color: #cccccc;
-            margin-bottom: 18px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #aaaaaa;
-            background: #101010;
-            font-size: 13px;
-        }
-
-        @media (max-width: 600px) {
-            header {
-                justify-content: center;
-                text-align: center;
-            }
-
-            nav {
-                justify-content: center;
-            }
-
-            .hero {
-                text-align: center;
-                padding-top: 35px;
-            }
-
-            .hero p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero img {
-                max-width: 320px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brixo Burger | بريكسو برجر</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#171717;color:#fff;line-height:1.8}
+header{background:#222;padding:16px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:3px solid #e52b2b}
+.logo{font-size:23px;font-weight:bold;color:#ffcc00}
+.logo span{color:#ff3636}
+nav{display:flex;gap:15px;flex-wrap:wrap}
+nav a{color:#fff;text-decoration:none}
+nav a:hover{color:#ffcc00}
+.hero{padding:45px 6%;display:flex;align-items:center;justify-content:space-between;gap:25px;flex-wrap:wrap;background:radial-gradient(circle at top left,#383020,#171717 70%)}
+.hero-text{flex:1 1 250px}
+.hero h1{font-size:clamp(34px,7vw,54px);line-height:1.4}
+.hero h1 span,.section-title span{color:#ffcc00}
+.hero p{color:#ccc;margin:12px 0 22px}
+.hero img{width:100%;max-width:350px;border-radius:18px;border:3px solid #ffcc00}
+.button{display:inline-block;background:#e52b2b;color:#fff;text-decoration:none;padding:10px 20px;border:0;border-radius:8px;font-weight:bold;cursor:pointer}
+.button:hover{background:#c91d1d}
+section.menu,section.cart-section{padding:35px 6%}
+.section-title{text-align:center;font-size:29px;margin-bottom:5px}
+.subtitle{text-align:center;color:#bbb;margin-bottom:24px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:15px}
+.card{background:#262626;border:1px solid #404040;border-radius:14px;padding:14px;text-align:center}
+.card img{width:100%;height:135px;object-fit:cover;border-radius:9px}
+.food-icon{font-size:56px;line-height:1.8}
+.card h3{color:#ffcc00;font-size:19px}
+.card p{color:#ccc;font-size:13px}
+.price{font-size:18px;font-weight:bold;margin:7px 0;color:#fff}
+.card button{width:100%;margin-top:5px}
+.cart-section{background:#202020}
+.cart-box{max-width:700px;margin:auto;background:#292929;padding:18px;border-radius:14px}
+.cart-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #444}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{background:#444;color:white;border:0;border-radius:5px;padding:2px 10px;font-size:18px}
+.total{font-size:21px;color:#ffcc00;font-weight:bold;margin:16px 0}
+.field{width:100%;margin:7px 0;padding:12px;border-radius:7px;border:1px solid #555;background:#171717;color:#fff;font-size:16px}
+label{display:block;margin-top:10px}
+.note{color:#bbb;font-size:12px}
+footer{text-align:center;padding:20px;background:#101010;color:#aaa;font-size:13px}
+@media(max-width:600px){header{justify-content:center}nav{justify-content:center}.hero{text-align:center}.hero img{max-width:320px;margin:auto}.hero p{margin-left:auto;margin-right:auto}}
+</style>
 </head>
-
 <body>
+<header>
+  <div class="logo">BRIXO <span>BURGER</span></div>
+  <nav>
+    <a href="#home">الرئيسية</a>
+    <a href="#menu">قائمة الطعام</a>
+    <a href="#cart">سلة الطلبات (<span id="cart-count">0</span>)</a>
+  </nav>
+</header>
 
-    <header>
-        <div class="logo">BRIXO <span>BURGER</span></div>
+<main>
+<section class="hero" id="home">
+  <div class="hero-text">
+    <h1>طعم يستحق<br><span>التجربة!</span></h1>
+    <p>أهلاً بكم في بريكسو برجر. اكتشفوا وجباتنا واختروا ما يناسبكم.</p>
+    <a class="button" href="#menu">تصفح قائمة الطعام</a>
+  </div>
+  <img src="images/burger-1.jpg" alt="برجر بريكسو">
+</section>
 
-        <nav>
-            <a href="#home">الرئيسية</a>
-            <a href="#menu">قائمة الطعام</a>
-            <a href="#contact">تواصل معنا</a>
-        </nav>
-    </header>
+<section class="menu" id="menu">
+  <h2 class="section-title">قائمة <span>الطعام</span></h2>
+  <p class="subtitle">أسعار تجريبية بالريال السعودي قابلة للتغيير قبل الإطلاق</p>
+  <div class="cards" id="products"></div>
+</section>
 
-    <main>
-        <section class="hero" id="home">
-            <div class="hero-text">
-                <h1>طعم يستحق<br><span>التجربة!</span></h1>
+<section class="cart-section" id="cart">
+  <h2 class="section-title">سلة <span>الطلبات</span></h2>
+  <p class="subtitle">راجع طلبك قبل إرساله إلى المطعم</p>
+  <div class="cart-box">
+    <div id="cart-items">لم تضف أي وجبة بعد.</div>
+    <div class="total">الإجمالي: <span id="total">0.00</span> ر.س</div>
+    <label for="customer">اسم العميل</label>
+    <input class="field" id="customer" placeholder="اكتب اسمك">
+    <label for="address">العنوان أو منطقة التوصيل</label>
+    <input class="field" id="address" placeholder="المدينة والحي والعنوان">
+    <label for="phone">رقم تواصل العميل (اختياري)</label>
+    <input class="field" id="phone" type="tel" placeholder="رقم هاتفك">
+    <label for="notes">ملاحظات الطلب (اختياري)</label>
+    <textarea class="field" id="notes" rows="2" placeholder="مثلاً: بدون بصل"></textarea>
+    <p class="note">الأسعار تجريبية. رسوم التوصيل غير محسوبة بعد. إرسال الطلب يفتح واتساب لتراجع الرسالة وترسلها بنفسك.</p>
+    <button class="button" style="width:100%;margin-top:14px" onclick="sendOrder()">إرسال الطلب عبر واتساب</button>
+    <p id="message" role="status" style="margin-top:10px"></p>
+  </div>
+</section>
+</main>
 
-                <p>
-                    أهلاً بكم في بريكسو برجر.
-                    استمتعوا بالبرجر والبيتزا والبطاطس
-                    والمقبلات في عالم من النكهات الشهية.
-                </p>
+<footer>© Brixo Burger — بريكسو برجر</footer>
 
-                <a class="button" href="#menu">
-                    اكتشف قائمة الطعام
-                </a>
-            </div>
+<script>
+const WHATSAPP_NUMBER = "967775720116";
 
-            <div>
-                <img
-                    src="images/burger-1.jpg"
-                    alt="برجر بريكسو"
-                >
-            </div>
-        </section>
+const products = [
+  {id:1,name:"برجر عادي",price:10,icon:"🍔",desc:"برجر لذيذ"},
+  {id:2,name:"بيتزا صغيرة",price:15,icon:"🍕",desc:"بيتزا شهية"},
+  {id:3,name:"بطاطس",price:5,icon:"🍟",desc:"بطاطس مقرمشة"},
+  {id:4,name:"مقبلات",price:8,icon:"🍗",desc:"إضافة لذيذة"}
+];
 
-        <section class="menu" id="menu">
-            <h2>اكتشف <span>قائمتنا</span></h2>
+const cart = {};
 
-            <p class="subtitle">
-                اختر وجبتك المفضلة
-            </p>
+function renderProducts(){
+  document.getElementById("products").innerHTML = products.map(p => `
+    <article class="card">
+      <div class="food-icon" aria-hidden="true">${p.icon}</div>
+      <h3>${p.name}</h3>
+      <p>${p.desc}</p>
+      <div class="price">${p.price.toFixed(2)} ر.س</div>
+      <button class="button" onclick="addToCart(${p.id})">أضف إلى السلة</button>
+    </article>
+  `).join("");
+}
 
-            <div class="cards">
-                <div class="card">
-                    <div class="emoji">🍔</div>
-                    <h3>البرجر</h3>
-                    <p>نكهة غنية في كل قضمة</p>
-                </div>
+function addToCart(id){
+  cart[id] = (cart[id] || 0) + 1;
+  renderCart();
+}
 
-                <div class="card">
-                    <div class="emoji">🍕</div>
-                    <h3>البيتزا</h3>
-                    <p>طعم يجمع الجميع</p>
-                </div>
+function changeQty(id,amount){
+  cart[id] = (cart[id] || 0) + amount;
+  if(cart[id] <= 0) delete cart[id];
+  renderCart();
+}
 
-                <div class="card">
-                    <div class="emoji">🍟</div>
-                    <h3>البطاطس</h3>
-                    <p>قرمشة لا تُقاوم</p>
-                </div>
+function renderCart(){
+  const entries = products.filter(p => cart[p.id]);
+  const count = entries.reduce((sum,p) => sum + cart[p.id],0);
+  const total = entries.reduce((sum,p) => sum + p.price * cart[p.id],0);
 
-                <div class="card">
-                    <div class="emoji">🍗</div>
-                    <h3>المقبلات</h3>
-                    <p>إضافة لذيذة لوجبتك</p>
-                </div>
-            </div>
-        </section>
+  document.getElementById("cart-count").textContent = count;
+  document.getElementById("total").textContent = total.toFixed(2);
 
-        <section class="contact" id="contact">
-            <h2>جاهز لتجربة بريكسو؟</h2>
+  const container = document.getElementById("cart-items");
+  if(!entries.length){
+    container.textContent = "لم تضف أي وجبة بعد.";
+    return;
+  }
 
-            <p>
-                اكتشف قائمتنا واختر وجبتك المفضلة.
-            </p>
+  container.innerHTML = entries.map(p => `
+    <div class="cart-row">
+      <div>
+        <strong>${p.name}</strong><br>
+        <small>${(p.price * cart[p.id]).toFixed(2)} ر.س</small>
+      </div>
+      <div class="qty">
+        <button aria-label="زيادة ${p.name}" onclick="changeQty(${p.id},1)">+</button>
+        <span>${cart[p.id]}</span>
+        <button aria-label="تقليل ${p.name}" onclick="changeQty(${p.id},-1)">−</button>
+      </div>
+    </div>
+  `).join("");
+}
 
-            <a class="button" href="#menu">
-                استعرض الوجبات
-            </a>
-        </section>
-    </main>
+function sendOrder(){
+  const entries = products.filter(p => cart[p.id]);
+  const message = document.getElementById("message");
 
-    <footer>
-        © Brixo Burger — بريكسو برجر
-    </footer>
+  if(!entries.length){
+    message.textContent = "أضف وجبة واحدة على الأقل قبل إرسال الطلب.";
+    return;
+  }
 
+  const customer = document.getElementById("customer").value.trim();
+  const address = document.getElementById("address").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const notes = document.getElementById("notes").value.trim();
+
+  if(!customer || !address){
+    message.textContent = "يرجى كتابة اسمك وعنوان التوصيل أولاً.";
+    return;
+  }
+
+  const total = entries.reduce((sum,p) => sum + p.price * cart[p.id],0);
+  const lines = [
+    "طلب جديد من موقع Brixo Burger",
+    "الاسم: " + customer,
+    "العنوان: " + address,
+    phone ? "رقم العميل: " + phone : "",
+    "",
+    "تفاصيل الطلب:",
+    ...entries.map(p => `${p.name} × ${cart[p.id]} = ${(p.price * cart[p.id]).toFixed(2)} ر.س`),
+    "",
+    "الإجمالي المبدئي: " + total.toFixed(2) + " ر.س",
+    "رسوم التوصيل غير محسوبة",
+    notes ? "ملاحظات: " + notes : ""
+  ].filter(Boolean);
+
+  const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(lines.join("\n"));
+  window.open(url,"_blank");
+  message.textContent = "راجع تفاصيل الطلب في واتساب ثم أرسله للمطعم.";
+}
+
+renderProducts();
+renderCart();
+</script>
 </body>
 </html>
