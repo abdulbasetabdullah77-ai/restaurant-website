@@ -182,7 +182,7 @@
     <section class="section" id="menu">
       <div class="container">
         <div class="section-head">
-          <div><div class="section-kicker">قائمة الطعام</div><h2>اختَر وجبتك المفضلة</h2><p class="section-desc">اضغط علامة + لإضافة الوجبة إلى السلة. الأسعار المعروضة تجريبية ويجب اعتماد الأسعار الحقيقية قبل استقبال الطلبات.</p></div>
+          <div><div class="section-kicker">قائمة الطعام</div><h2>اختَر وجبتك المفضلة</h2><p class="section-desc">اضغط علامة + لإضافة وجبتك إلى السلة، ثم راجع طلبك وأرسله عبر واتساب.</p></div>
           <a class="btn btn-outline" href="#order">انتقل إلى السلة ↓</a>
         </div>
         <div class="category-row" id="categoryRow" aria-label="تصنيف الوجبات">
@@ -193,7 +193,7 @@
           <button class="category-btn" type="button" data-category="drinks">مشروبات</button>
         </div>
         <div class="menu-grid" id="menuGrid" aria-live="polite"></div>
-        <p class="price-note">تنبيه: هذه أسعار نموذجية بالدولار الأمريكي لأغراض تجربة الموقع فقط، وليست أسعار بيع مؤكدة. حدّث الأسعار ومكونات الوجبات قبل استقبال الطلبات الفعلية.</p>
+        
       </div>
     </section>
 
@@ -203,7 +203,7 @@
           <div><div class="section-kicker">تجربة بريكسو</div><h2>طلبك أوضح وأسهل</h2><p class="section-desc">صُممت الصفحة لتكون مباشرة وسهلة الاستخدام على الجوال والكمبيوتر.</p></div>
         </div>
         <div class="features">
-          <article class="feature"><div class="feature-icon" aria-hidden="true">🍔</div><h3>قائمة مرتبة</h3><p>تصفّح الأصناف حسب النوع، وشاهد السعر قبل إضافة الوجبة إلى السلة.</p></article>
+          <article class="feature"><div class="feature-icon" aria-hidden="true">🍔</div><h3>قائمة مرتبة</h3><p>تصفّح الأصناف حسب النوع، واختر ما تشتهيه، ثم أضفه إلى سلتك بسهولة.</p></article>
           <article class="feature"><div class="feature-icon" aria-hidden="true">🛒</div><h3>سلة قابلة للتعديل</h3><p>زِد الكمية أو قلّلها أو احذف الصنف، ويُعاد حساب الإجمالي تلقائياً.</p></article>
           <article class="feature"><div class="feature-icon" aria-hidden="true">💬</div><h3>تأكيد عبر واتساب</h3><p>تُجهّز رسالة تحتوي تفاصيل الطلب، ثم تراجعها في واتساب قبل أن ترسلها بنفسك.</p></article>
         </div>
@@ -253,7 +253,6 @@
             <div id="formStatus" class="status-message" role="status" aria-live="polite"></div>
             <div class="form-actions">
               <button class="btn btn-primary" type="submit">مراجعة الطلب في واتساب <span aria-hidden="true">↗</span></button>
-              <button class="btn btn-outline" type="button" id="testWhatsAppButton">اختبار رابط واتساب (بدون طلب)</button>
             </div>
             <p class="privacy-note">بياناتك تُستخدم لتجهيز رسالة الطلب فقط من هذه الصفحة.</p>
           </form>
@@ -264,7 +263,7 @@
 
   <footer>
     <div class="container footer-inner">
-      <div><div class="footer-brand">بريكسو برجر | BRIXO BURGER</div><div class="footer-small">هوية حمراء وصفراء — طعم يستاهل التجربة.</div></div>
+      <div><div class="footer-brand">بريكسو برجر | BRIXO BURGER</div><div class="footer-small">وجبتك على ذوقك — اختر المفضّل لديك ودع الباقي علينا.</div></div>
       <div class="footer-links"><a href="#home">الرئيسية</a><a href="#menu">قائمة الطعام</a><a href="#order">اطلب الآن</a></div>
       <div class="footer-small">© <span id="year"></span> Brixo Burger</div>
     </div>
@@ -285,7 +284,7 @@
     // أسعار تجريبية بالدولار الأمريكي. عدّلها إلى الأسعار الحقيقية قبل نشر الموقع.
     const PRODUCTS = [
       {id:"classic-burger",name:"كلاسيك برجر",category:"burger",price:5.00,tag:"الأكثر طلباً",description:"برجر كلاسيكي مع الخس والطماطم والصوص.",image:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=82",alt:"برجر كلاسيكي"},
-      {id:"cheese-burger",name:"تشيز برجر",category:"burger",price:6.00,tag:"جبنة لذيذة",description:"برجر مع الجبنة الذائبة وخبز طري.",image:"https://images.unsplash.com/photo-1553979459-d2229ba7433a?auto=format&fit=crop&w=800&q=82",alt:"تشيز برجر"},
+      {id:"cheese-burger",name:"تشيز برجر",category:"burger",price:6.00,tag:"جبنة لذيذة",description:"برجر مع الجبنة الذائبة وخبز طري.",image:"https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=82",alt:"تشيز برجر"},
       {id:"double-burger",name:"دبل برجر",category:"burger",price:8.00,tag:"وجبة دسمة",description:"طبقتان من البرجر مع إضافات شهية.",image:"https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=82",alt:"دبل برجر"},
       {id:"pepperoni-pizza",name:"بيتزا بيبروني",category:"pizza",price:8.00,tag:"بيتزا",description:"بيتزا بالجبنة والبيبروني وصوص الطماطم.",image:"https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=800&q=82",alt:"بيتزا بيبروني"},
       {id:"cheese-pizza",name:"بيتزا الجبنة",category:"pizza",price:7.00,tag:"كلاسيكية",description:"جبنة ذائبة وصوص طماطم على عجينة مخبوزة.",image:"https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?auto=format&fit=crop&w=800&q=82",alt:"بيتزا بالجبنة"},
@@ -314,7 +313,7 @@
       grid.innerHTML = visible.map(product => `
         <article class="product-card">
           <div class="product-photo-wrap">
-            <img class="product-photo" src="${product.image}" alt="${escapeHtml(product.alt)}" loading="lazy" decoding="async">
+            <img class="product-photo" src="${product.image}" alt="${escapeHtml(product.alt)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${product.category === "pizza" ? "https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=800&q=82" : product.category === "sides" ? "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=82" : product.category === "drinks" ? "https://images.unsplash.com/photo-1581636625402-29b2a704ef13?auto=format&fit=crop&w=800&q=82" : "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=82"}';">
             <span class="product-tag">${escapeHtml(product.tag)}</span>
           </div>
           <div class="product-content">
@@ -487,14 +486,6 @@
       status.className = "status-message show success";
       // التنقل في الصفحة نفسها أكثر موثوقية على بعض متصفحات الجوال من فتح نافذة منبثقة.
       window.location.href = url;
-    });
-
-    $("#testWhatsAppButton").addEventListener("click",() => {
-      const url = "https://wa.me/" + WHATSAPP_NUMBER;
-      window.open(url,"_blank","noopener,noreferrer");
-      const status = $("#formStatus");
-      status.textContent = "اختبار الرابط فقط: لم تُضف بيانات طلب ولم تُرسل أي رسالة. إذا لم يفتح واتساب، تأكد من اتصال الإنترنت وتثبيت التطبيق.";
-      status.className = "status-message show success";
     });
 
     $("#headerCartButton").addEventListener("click",() => {
